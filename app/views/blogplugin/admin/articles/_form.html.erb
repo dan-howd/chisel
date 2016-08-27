@@ -1,0 +1,28 @@
+<section>
+  <%= form_for(@admin_article) do |f| %>
+    <% if @admin_article.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@admin_article.errors.count, "error") %> prohibited this admin_article from being saved:</h2>
+
+        <ul>
+        <% @admin_article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <div class='form-element'><%= f.text_field :title %></div>
+      <div class='form-element'><%= f.text_area :body %></div>
+      <div class='form-element'>
+        <%= f.label :published, "Published?" %>
+        <%= f.check_box :published %>
+      </div>
+      <div class='form-element'>
+        <%= link_to 'AsciiDoctor Quick Reference', 'http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/', target: '_blank' %>
+      </div>
+      <div class='form-element'><%= f.submit %></div>
+    </div>
+  <% end %>
+</section>
