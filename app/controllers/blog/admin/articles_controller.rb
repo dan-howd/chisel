@@ -1,7 +1,7 @@
 require_dependency "blog/application_controller"
 
 module Blog
-  class Admin::ArticlesController < ApplicationController
+  class Admin::ArticlesController < Admin::ApplicationController
     before_filter :authenticate_user!
     before_action :set_admin_article, only: [:show, :edit, :update, :destroy]
 
