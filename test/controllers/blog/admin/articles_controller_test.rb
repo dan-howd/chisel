@@ -1,9 +1,15 @@
 require 'test_helper'
 
+
 module Blog
   class Admin::ArticlesControllerTest < ActionController::TestCase
     setup do
       @routes = Engine.routes
+      [:root_path, :destroy_user_session_path].each do |m|
+        main_app.class.send :define_method, m do |arg|
+          return "/"
+        end
+      end
     end
 
     test "should get index" do
