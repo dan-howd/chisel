@@ -6,7 +6,7 @@ module Blog
     protect_from_forgery with: :exception
 
     def ssl_configured?
-      !Rails.env.development?
+      Rails.env.production?
     end
   end
 end
