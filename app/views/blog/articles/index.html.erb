@@ -1,5 +1,15 @@
+<h1>Recent Blog Entries</h1>
+<ul class='list-group'>
 <% @articles.each do |article| %>
-  <%= render "article", article: article %>
+  <li class='list-group-item article-list-item'>
+    <h3 class='title'>
+      <%= link_to article.title, article_path(article) %>
+    </h3>
+    <p class='timestamp'>
+      <%= render_timestamp(article.created_at) %>
+    </p>
+  </li>
 <% end %>
+</ul>
 
 <%= paginate @articles %>
