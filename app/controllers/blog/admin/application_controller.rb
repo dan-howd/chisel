@@ -5,10 +5,9 @@ module Blog
     force_ssl if: :ssl_configured?
     protect_from_forgery with: :exception
 
-    # Require authentication if in host application and devise is present.
-    #
-    # Otherwise authentication not required in testing environment.
-    before_filter :authenticate_user! if defined? authenticate_user!
+    if !Rails.env.testing?
+      before_filter :authenticate_user!
+    end
 
     def ssl_configured?
       Rails.env.production?
