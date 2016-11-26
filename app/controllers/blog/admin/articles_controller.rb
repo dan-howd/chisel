@@ -56,7 +56,7 @@ module Blog
 
       # Only allow a trusted parameter "white list" through.
       def admin_article_params
-        params[:admin_article]
+        params[:admin_article].permit(:title, :body, :published)
       end
   end
 end
