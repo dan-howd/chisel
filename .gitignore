@@ -2,4 +2,5 @@
 *.sqlite3
 *.swp
 
+*/tmp/*
 test/dummy/tmp
