@@ -18,6 +18,8 @@
     <nav class='navbar navbar-inverse navbar-static-top'>
       <div class='container'>
         <ul class='nav navbar-nav'>
+          <li><%= link_to "Articles", admin_articles_path %></li>
+          <li><%= link_to "Projects", admin_projects_path %></li>
           <li><%= link_to "View Site", main_app.root_path %></li>
           <li><%= link_to "Log Out", main_app.destroy_user_session_path, method: :delete %></li>
         </ul>

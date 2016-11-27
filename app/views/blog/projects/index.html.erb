@@ -1,0 +1,20 @@
+<section>
+  <header>
+    <% if @projects.empty? %>
+      <p>There are currently no projects to display.</p>
+    <% else %>
+      <h1>My Projects</h1>
+    <% end %>
+  </header>
+  <ul class='list-group'>
+    <% @projects.each do |project| %>
+    <li class='list-group-item article-list-item'>
+      <h3><%= link_to project.name, project.url, target: "_blank" %></h3>
+      <div><%= project.description %></div>
+    </li>
+    <% end %>
+  </ul>
+  <footer>
+    <%= paginate @projects %>
+  </footer>
+</section>

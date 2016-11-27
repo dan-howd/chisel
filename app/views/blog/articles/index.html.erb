@@ -1,15 +1,24 @@
-<h1>Recent Blog Entries</h1>
-<ul class='list-group'>
-<% @articles.each do |article| %>
-  <li class='list-group-item article-list-item'>
-    <h3 class='title'>
-      <%= link_to article.title, article_path(article) %>
-    </h3>
-    <p class='timestamp'>
-      <%= render_timestamp(article.created_at) %>
-    </p>
-  </li>
-<% end %>
-</ul>
-
-<%= paginate @articles %>
+<section>
+  <header>
+    <% if @articles.empty? %>
+      <p>There are currently no articles to display.</p>
+    <% else %>
+      <h1>Recent Blog Entries</h1>
+    <% end %>
+  </header>
+  <ul class='list-group'>
+  <% @articles.each do |article| %>
+    <li class='list-group-item article-list-item'>
+      <h3 class='title'>
+        <%= link_to article.title, article_path(article) %>
+      </h3>
+      <p class='timestamp'>
+        <%= render_timestamp(article.created_at) %>
+      </p>
+    </li>
+  <% end %>
+  </ul>
+  <footer>
+    <%= paginate @articles %>
+  </footer>
+</section>

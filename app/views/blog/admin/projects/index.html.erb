@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Created At</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_projects.each do |admin_project| %>
+      <tr>
+        <td><%= admin_project.created_at.strftime("%-m/%-d/%y") %></td>
+        <td><%= admin_project.name %></td>
+        <td><%= link_to 'Show', project_path(admin_project) %></td>
+        <td><%= link_to 'Edit', edit_admin_project_path(admin_project) %></td>
+        <td><%= link_to 'Destroy', admin_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @admin_projects %>
+
+<%= link_to 'New Article', new_admin_project_path %>
