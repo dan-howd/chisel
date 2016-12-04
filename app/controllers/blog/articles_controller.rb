@@ -81,7 +81,7 @@ module Blog
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def article_params
-        params[:article]#.permit(:title, :body, :published)
+        params[:article].permit(:title, :body, :published)
       end
   end
 end
