@@ -1,20 +1,11 @@
 <section>
-  <header>
-    <% if @articles.empty? %>
-      <p>There are currently no articles to display.</p>
-    <% else %>
-      <h1>Recent Blog Entries</h1>
-    <% end %>
-  </header>
-  <ul class='list-group'>
+  <ul class='no-bullets'>
   <% @articles.each do |article| %>
-    <li class='list-group-item article-list-item'>
-      <h3 class='title'>
-        <%= link_to article.title, article_path(article) %>
-      </h3>
-      <p class='timestamp'>
+    <li class='article'>
+      <span class='timestamp'>
         <%= render_timestamp(article.created_at) %>
-      </p>
+      </span>
+      <%= link_to article.title, article_path(article) %>
     </li>
   <% end %>
   </ul>
