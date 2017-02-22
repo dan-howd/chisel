@@ -1,6 +1,6 @@
 module Blog
   class Admin::ApplicationController < ActionController::Base
-    layout "blog/admin"
+    layout "application"
 
     force_ssl if: :ssl_configured?
     protect_from_forgery with: :exception
