@@ -1,14 +1,12 @@
 <section>
-  <ul class='no-bullets'>
-  <% @articles.each do |article| %>
-    <li class='article'>
-      <span class='timestamp'>
-        <%= render_timestamp(article.created_at) %>
-      </span>
-      <%= link_to article.title, article_path(article) %>
-    </li>
-  <% end %>
-  </ul>
+  <table>
+    <% @articles.each do |article| %>
+    <tr>
+      <td><%= link_to article.title, article_path(article) %></td>
+      <td class='nowrap top-align'><%= render_timestamp(article.created_at) %></td>
+    </tr>
+    <% end %>
+  </table>
   <footer>
     <%= paginate @articles %>
   </footer>

@@ -5,7 +5,7 @@
     </h1>
   </header>
   <footer>
-    <%= localize(article.created_at.to_date, format: :long) %>
+    Last updated on <%= localize(article.updated_at.to_date, format: :long) %>
   </footer>
   <div>
     <%= render_text(article.body) %>
