@@ -10,11 +10,11 @@
   <tbody>
     <% @admin_articles.each do |admin_article| %>
       <tr>
-        <td><%= admin_article.created_at.strftime("%-m/%-d/%y") %></td>
+        <td class='nowrap top-align'><%= render_timestamp(admin_article.created_at) %></td>
         <td><%= admin_article.title %></td>
-        <td><%= link_to 'Show', article_path(admin_article) %></td>
-        <td><%= link_to 'Edit', edit_admin_article_path(admin_article) %></td>
-        <td><%= link_to 'Destroy', admin_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='top-align'><%= link_to 'Show', article_path(admin_article) %></td>
+        <td class='top-align'><%= link_to 'Edit', edit_admin_article_path(admin_article) %></td>
+        <td class='top-align'><%= link_to 'Destroy', admin_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
