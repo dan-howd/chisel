@@ -1,13 +1,19 @@
-<section>
-  <table>
-    <% @articles.each do |article| %>
-    <tr>
-      <td><%= link_to article.title, article_path(article) %></td>
-      <td class='nowrap top-align'><%= render_timestamp(article.created_at) %></td>
-    </tr>
-    <% end %>
-  </table>
-  <footer>
-    <%= paginate @articles %>
-  </footer>
-</section>
+<% if params[:archive] %>
+  <section>
+    <table>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, article_path(article) %></td>
+          <td class='nowrap top-align'><%= render_timestamp(article.created_at) %></td>
+        </tr>
+      <% end %>
+    </table>
+    <footer>
+      <%= paginate @articles %>
+    </footer>
+  </section>
+<% else %>
+  <% @articles.each do |article| %>
+    <%= render "article", article: article %>
+  <% end %>
+<% end %>
