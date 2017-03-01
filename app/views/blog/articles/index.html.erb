@@ -14,7 +14,9 @@
   </section>
 <% else %>
   <% @articles.each do |article| %>
-    <%= render "article", article: article %>
-    <a href="<%= article_url(article) + "#disqus_thread" %>"></a>
+    <article>
+      <%= render "article", article: article %>
+      <a href="<%= article_url(article) + "#disqus_thread" %>"></a>
+    </article>
   <% end %>
 <% end %>

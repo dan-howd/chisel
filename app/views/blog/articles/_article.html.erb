@@ -1,13 +1,11 @@
-<article>
-  <header>
-    <h1 class='title'>
-      <%= link_to article.title, article_path(article) %>
-    </h1>
-  </header>
-  <footer>
-    Last updated on <%= localize(article.updated_at.to_date, format: :long) %>
-  </footer>
-  <div>
-    <%= render_text(article.body) %>
-  </div>
-</article>
+<header>
+  <h1 class='title'>
+    <%= link_to article.title, article_path(article) %>
+  </h1>
+</header>
+<footer>
+  Last updated on <%= localize(article.updated_at.to_date, format: :long) %>
+</footer>
+<div>
+  <%= render_text(article.body) %>
+</div>
