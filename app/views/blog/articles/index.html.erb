@@ -15,5 +15,6 @@
 <% else %>
   <% @articles.each do |article| %>
     <%= render "article", article: article %>
+    <a href="<%= article_url(article) + "#disqus_thread" %>"></a>
   <% end %>
 <% end %>
