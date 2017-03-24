@@ -24,6 +24,11 @@ module Blog
       assert_response :success
     end
 
+    test "get show success" do
+      get :show, id: @article
+      assert_response :success
+    end
+
     test "get new success" do
       get :new
       assert_response :success
@@ -35,11 +40,6 @@ module Blog
       assert_difference('Article.count') do
         post :create, admin_article: article_attributes
       end
-    end
-
-    test "get show success" do
-      get :show, id: @article
-      assert_response :success
     end
 
     test "get edit success" do
