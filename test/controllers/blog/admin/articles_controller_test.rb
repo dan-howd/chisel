@@ -19,43 +19,39 @@ module Blog
       end
     end
 
-    test "get index successful" do
+    test "get index success" do
       get :index
       assert_response :success
-      assert_not_nil assigns(:admin_articles)
     end
 
-    test "should get new" do
+    test "get new success" do
       get :new
       assert_response :success
     end
 
-    test "should create admin_article" do
+    test "post create success" do
       article_attributes = @article.attributes
       article_attributes[:title] = "Test Title FASDF2345"
       assert_difference('Article.count') do
         post :create, admin_article: article_attributes
       end
-
-      assert_redirected_to article_path(assigns(:admin_article))
     end
 
-    test "should show article" do
+    test "get show success" do
       get :show, id: @article
       assert_response :success
     end
 
-    test "should get edit" do
+    test "get edit success" do
       get :edit, id: @article
       assert_response :success
     end
 
-    test "should update admin_article" do
+    test "patch update success" do
       patch :update, id: @article, admin_article: {  }
-      assert_redirected_to article_path(assigns(:admin_article))
     end
 
-    test "should destroy admin_article" do
+    test "delete destroy success" do
       assert_difference('Article.count', -1) do
         delete :destroy, id: @article
       end
