@@ -1,32 +1,49 @@
 require 'test_helper'
 
-class ProjectsControllerTest < ActionController::TestCase
-  setup do
-    @project = create(:project)
-  end
+module Blog
+  class ProjectsControllerTest < ActionController::TestCase
+    setup do
+      @project = blog_projects(:one)
+    end
 
-  test "controller actions succeed with regular usage" do
-    get :index
-    assert_response :success
+    test "get index success" do
+      get :index
+      assert_response :success
+    end
 
-    get :show, {id: @project.id}
-    assert_response :success
+    test "get show success" do
+      get :show, params: {id: @project}
+      assert_response :success
+    end
 
-    sign_in @user
-    get :new
-    assert_response :success
+    test "get new success" do
+      get :new
+      assert_response :success
+    end
 
-    get :edit, {id: @project.id}
-    assert_response :success
+    test "post create success" do
+      project_attributes = @project.attributes
+      project_attributes[:name] = "Test Name FASDF2345"
+      assert_difference('Article.count') do
+        post :create, params: {admin_project: project_attributes}
+      end
+    end
 
-    post :create, project: attributes_for(:project)
-    assert_redirected_to controller: 'projects', action: 'show', id: Project.last.id
+    test "get edit success" do
+      get :edit, params: {id: @project}
+      assert_response :success
+    end
 
-    patch :update, {id: @project.id, project: attributes_for(:project)}
-    assert_redirected_to controller: 'projects', action: 'show'
+    test "patch update success" do
+      patch :update, params: {id: @project, admin_project: {  }}
+    end
 
-    delete :destroy, {id: @project.id}
-    assert_redirected_to controller: 'projects', action: 'index'
-    sign_out @user
+    test "delete destroy success" do
+      assert_difference('Article.count', -1) do
+        delete :destroy, params: {id: @project}
+      end
+
+      assert_redirected_to admin_projects_path
+    end
   end
 end
