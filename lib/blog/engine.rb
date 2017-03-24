@@ -5,9 +5,5 @@ module Blog
     require 'rubygems'
     require 'kaminari'
     require 'jquery-rails'
-
-    if !Rails.env.production?
-      require 'pry'
-    end
   end
 end
