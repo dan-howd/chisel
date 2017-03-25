@@ -3,9 +3,8 @@ module Blog
     layout "application"
     protect_from_forgery with: :exception
 
-    if !Rails.env.test?
+    unless Rails.env.test?
       before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
     end
-
   end
 end
