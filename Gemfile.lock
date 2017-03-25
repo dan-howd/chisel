@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     chisel (0.0.1)
+      asciidoctor
       jquery-rails
       kaminari
-      minitest-reporters
       rails (~> 5.0.2)
       sass-rails
 
@@ -50,6 +50,7 @@ GEM
       tzinfo (~> 1.1)
     ansi (1.5.0)
     arel (7.1.4)
+    asciidoctor (1.5.5)
     builder (3.2.3)
     concurrent-ruby (1.0.5)
     erubis (2.7.0)
@@ -147,6 +148,7 @@ PLATFORMS
 
 DEPENDENCIES
   chisel!
+  minitest-reporters
   sqlite3
 
 BUNDLED WITH

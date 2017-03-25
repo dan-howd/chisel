@@ -4,6 +4,7 @@ module Blog
   class ProjectsControllerTest < ActionController::TestCase
     setup do
       @project = blog_projects(:one)
+      @routes = Engine.routes
     end
 
     test "get index success" do
@@ -24,8 +25,8 @@ module Blog
     test "post create success" do
       project_attributes = @project.attributes
       project_attributes[:name] = "Test Name FASDF2345"
-      assert_difference('Article.count') do
-        post :create, params: {admin_project: project_attributes}
+      assert_difference('Project.count') do
+        post :create, params: {project: project_attributes}
       end
     end
 
@@ -35,11 +36,13 @@ module Blog
     end
 
     test "patch update success" do
-      patch :update, params: {id: @project, admin_project: {  }}
+      project_attributes = @project.attributes
+      project_attributes[:name] = "FERF"
+      patch :update, params: {id: @project, project: project_attributes}
     end
 
     test "delete destroy success" do
-      assert_difference('Article.count', -1) do
+      assert_difference('Project.count', -1) do
         delete :destroy, params: {id: @project}
       end
 

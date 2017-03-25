@@ -2,10 +2,10 @@ require 'test_helper'
 
 
 module Blog
-  class Admin::ArticlesControllerTest < ActionController::TestCase
+  class Admin::ProjectsControllerTest < ActionController::TestCase
 
     setup do
-      @article = blog_articles(:one)
+      @project = blog_projects(:one)
       @routes = Engine.routes
     end
 

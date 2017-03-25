@@ -5,5 +5,6 @@ module Blog
     require 'rubygems'
     require 'kaminari'
     require 'jquery-rails'
+    require 'asciidoctor'
   end
 end

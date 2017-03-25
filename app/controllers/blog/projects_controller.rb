@@ -5,8 +5,6 @@ module Blog
     # GET /projects
     # GET /projects.json
     def index
-      @page_title = "Projects"
-
       if params[:all]
         @projects = Project.all
       else
@@ -62,7 +60,7 @@ module Blog
     def destroy
       @project.destroy
       respond_to do |format|
-        format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+        format.html { redirect_to admin_projects_url, notice: 'Project was successfully destroyed.' }
       end
     end
 
