@@ -5,8 +5,7 @@ module Blog
     force_ssl if: :ssl_configured?
     protect_from_forgery with: :exception
 
-    # Very important!
-    if !Rails.env.test?
+    unless Rails.env.test?
       before_filter :authenticate_user!
     end
 
