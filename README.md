@@ -1,6 +1,4 @@
-# sizzle-chisel
-
-Add some sizzle to your chisel.
+# chisel
 
 This gem is a plugin that adds very basic blogging functionality to your rails
 application.
@@ -8,7 +6,7 @@ application.
 To install, put in your Gemfile:
 
 ```ruby
-gem 'sizzle-chisel', git: 'https://github.com/brlafreniere/sizzle-chisel.git'
+gem 'sizzle-chisel', git: 'https://github.com/brlafreniere/chisel.git'
 ```
 
 Run `bundle install`
